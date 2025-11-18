@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Are You a princess Shivani? 💝</title>
+
+  <!-- Google Fonts used by the page -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles (replace or keep your old file name) -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- floating decorations (left intentionally empty; your JS can add hearts/bears) -->
+  <div class="floating-elements position-fixed w-100 h-100 top-0 start-0" aria-hidden="true"></div>
+
+  <!-- Main centered wrapper (symmetric skeleton) -->
+  <main class="page-shell d-flex align-items-center justify-content-center">
+    <div class="card-shell w-100">
+
+      <!-- Header: title + subtitle -->
+      <header class="text-center header-block">
+        <h1 id="valentineTitle" class="main-title mb-1">Are You a princess, Shivani?</h1>
+        <p class="subtitle mb-3">A small question with a big heart — are you a princess or not?</p>
+      </header>
+
+
+      
+      <!-- Top controls row: music + hint -->
+      <div class="top-row d-flex align-items-center justify-content-between mb-3">
+        <div class="music-area d-flex align-items-center gap-3">
+          <button id="musicToggle" class="music-btn" aria-pressed="false" title="Play / Pause music">
+            <span class="vinyl"></span>
+            <span class="music-label">Play Music</span>
+          </button>
+          <small class="text-muted hint-text">Whats ur fav song girl? give me a hint!</small>
+        </div>
+
+        <div class="tip-area text-end d-none d-md-block">
+          <small class="text-muted"></small>
+        </div>
+      </div>
+
+      <!-- Extras row (single centered line on wide screens) -->
+      <section class="extras-row mb-4">
+        <div class="extras">
+          <!-- Flower card (open external site) -->
+          <div class="card flower-card" data-href="https://example.com/flower" role="group" aria-label="Flower link">
+            <img src="data:image/jpeg;base64,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" alt="Rose" class="flower-thumb">
+            <div class="card-body">
+              <h3 class="card-title">A Single Rose</h3>
+              <p class="card-desc">Click to take me somewhere special.</p>
+              <button class="cute-btn open-flower">Open</button>
+            </div>
+          </div>
+
+       
+      <!-- Questions and other content (kept intact) -->
+      <section class="questions mt-4">
+        <div class="question-section" id="question1">
+            <h2 id="question1Text"></h2>
+            <button class="cute-btn" onclick="yesReaction1()" id="yesBtn1"></button>
+            <button class="cute-btn" onclick="moveButton(this)" id="noBtn1"></button>
+            <div class="secret-answer">
+                <button class="cute-btn special" onclick="showNextQuestion(2)" id="secretAnswerBtn"></button>
+            </div>
+        </div>
+
+        <div class="question-section hidden" id="question2">
+            <h2 id="question2Text"></h2>
+            <div class="love-meter">
+                <input type="range" min="0" max="10000" value="100" class="slider" id="loveMeter">
+                <p>
+                    <span class="love-value-container"><span id="startText"></span> (<span id="loveValue">100</span>%)</span>
+                    <span id="extraLove" class="hidden"></span>
+                </p>
+            </div>
+            <button class="cute-btn" onclick="showNextQuestion(3)" id="nextBtn"></button>
+        </div>
+
+        <div class="question-section hidden" id="question3">
+            <h2 id="question3Text"></h2>
+            <button class="cute-btn final-yes" onclick="celebrate()" id="yesBtn3"></button>
+            <button class="cute-btn" onclick="moveButton(this)" id="noBtn3"></button>
+        </div>
+
+        <div class="celebration hidden" id="celebration">
+            <h2 id="celebrationTitle"></h2>
+            <p class="celebration-text" id="celebrationMessage"></p>
+            <p class="celebration-text" id="celebrationEmojis"></p>
+        </div>
+      </section>
+
+    </div> <!-- .card-shell -->
+
+
+  </main>
+
+  <!-- Bootstrap JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Hidden YouTube player element (required) -->
+<div id="ytPlayer" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;"></div>
+
+<!-- Load YouTube IFrame API BEFORE your script.js (or anywhere before using it) -->
+<script src="https://www.youtube.com/iframe_api"></script>
+
+  <!-- keep your existing scripts (unchanged) -->
+  <script src="config.js"></script>
+  <script src="theme.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
