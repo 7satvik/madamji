@@ -38,6 +38,28 @@ body {
     overflow-x: hidden;
 }
 
+/* Background video */
+#bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2; /* behind everything */
+}
+
+/* Pink transparent overlay */
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ffafbd99, #ffc3a099);
+  z-index: -1;
+}
+
 
 /* make interactive bits a bit snappier */
 button.cute-btn,
