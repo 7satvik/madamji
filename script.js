@@ -87,17 +87,14 @@ window.addEventListener('DOMContentLoaded', () => {
     setupMusicPlayer();
 });
 
+window.addEventListener("load", () => {
+    const bgMusic = document.getElementById("bgMusic");
 
-let musicStarted = false;
-
-function startMusicOnce() {
-    if (!musicStarted) {
-        const bgMusic = document.getElementById("bgMusic");
+    setTimeout(() => {
+        bgMusic.muted = false;  // unmute after load
         bgMusic.volume = 0.5;
-        bgMusic.play().catch(() => {});
-        musicStarted = true;
-    }
-}
+    }, 1200);
+});
 
 document.addEventListener("click", startMusicOnce);
 document.addEventListener("touchstart", startMusicOnce);
