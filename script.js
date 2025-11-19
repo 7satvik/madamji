@@ -314,4 +314,16 @@ function setupMusicPlayer() {
     });
 }
 
+let musicStarted = false;
 
+function startMusicOnce() {
+    if (!musicStarted) {
+        const bgMusic = document.getElementById("bgMusic");
+        bgMusic.volume = 0.5;
+        bgMusic.play().catch(() => {});
+        musicStarted = true;
+    }
+}
+
+document.addEventListener("click", startMusicOnce);
+document.addEventListener("touchstart", startMusicOnce);
