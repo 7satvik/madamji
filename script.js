@@ -87,14 +87,6 @@ window.addEventListener('DOMContentLoaded', () => {
     setupMusicPlayer();
 });
 
-window.addEventListener("load", () => {
-    const bgMusic = document.getElementById("bgMusic");
-
-    setTimeout(() => {
-        bgMusic.muted = false;  // unmute after load
-        bgMusic.volume = 0.5;
-    }, 1200);
-});
 
 // Create floating hearts and bears
 function createFloatingElements() {
@@ -274,7 +266,7 @@ function yesReaction1() {
 }
 
 function celebrate() {
-    alert("Ohh my god! 😳❤️");
+    alert("Sachhii! 😳❤️");
 
     document.querySelectorAll('.question-section').forEach(q => q.classList.add('hidden'));
     const celebration = document.getElementById('celebration');
@@ -286,7 +278,6 @@ function celebrate() {
 
     createHeartExplosion();
 }
-
 
 
 // Create heart explosion animation
@@ -320,3 +311,13 @@ function setupMusicPlayer() {
     });
 }
 
+// special music button ONLY
+document.getElementById("specialMusicBtn").addEventListener("click", () => {
+  const bgMusic = document.getElementById("bgMusic");
+
+  bgMusic.volume = 0.6;    // optional
+  bgMusic.currentTime = 0; // optional reset
+
+  bgMusic.play()
+    .catch(err => console.log("Autoplay blocked:", err));
+});
