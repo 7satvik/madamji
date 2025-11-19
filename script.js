@@ -96,10 +96,6 @@ window.addEventListener("load", () => {
     }, 1200);
 });
 
-document.addEventListener("click", startMusicOnce);
-document.addEventListener("touchstart", startMusicOnce);
-
-
 // Create floating hearts and bears
 function createFloatingElements() {
     const container = document.querySelector('.floating-elements');
